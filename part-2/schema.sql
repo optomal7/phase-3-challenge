@@ -1,0 +1,12 @@
+DROP DATABASE IF EXISTS grocery_store;
+CREATE DATABASE grocery_store;
+
+\c grocery_store
+
+DROP TABLE IF EXISTS todos;
+CREATE TABLE todos (
+id SERIAL PRIMARY KEY,
+name VARCHAR(80) NOT NULL,
+price NUMERIC NOT NULL,
+section VARCHAR(80) NOT NULL
+);
