@@ -1,0 +1,27 @@
+{
+  "name": "simple-math",
+  "version": "1.0.0",
+  "description": "Returns simple text response of zero, add, substract and double",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/optomal7/phase-3-challenge.git"
+  },
+  "keywords": [
+    "math",
+    "server"
+  ],
+  "author": "DangerMaus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/optomal7/phase-3-challenge/issues"
+  },
+  "homepage": "https://github.com/optomal7/phase-3-challenge#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "nodemon": "^1.11.0"
+  }
+}
