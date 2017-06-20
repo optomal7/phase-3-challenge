@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 app.get('/', function (req, res) {
-  res.send('Welcome to math-basic, try some routes! (We suggest /zero /add /subtract and /double/:num)')
+  res.send('Welcome to math-basic, try some routes! (We suggest /zero /add /subtract and /double/:number)')
 })
 
 app.get('/zero', function (req, res) {
@@ -19,7 +19,6 @@ app.get('/subtract', function (req, res) {
 
 app.get('/double/:number', function(req, res) {
   res.send(String(req.params.number * 2))
-
 })
 
 app.listen(3000, function () {
