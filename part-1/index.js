@@ -1,24 +1,37 @@
-const express = require('express')
-const app = express()
+const app = require('express')();
+const bodyParser = require('body-parser');
 
-app.get('/', function (req, res) {
-  res.send('Welcome to math-basic, try some routes! (We suggest /zero /add /subtract and /double/:number)')
+app.use(bodyParser.urlencoded({ extended: true }));
+
+daysOfWeek = {monday: 1,
+              tuesday:2,
+              wednesday: 3,
+              thursday: 4,
+              friday: 5,
+              saturday: 6,
+              sunday: 7};
+
+app.get('/api/days/:day', function (req, res) {
+  const targetDay = req.params.day;
+  res.set('Content-Type', 'application/text');
+
+  if (daysOfWeek[targetDay] !== undefined) {
+    res.status(200)
+    res.send(daysOfWeek[req.params.day].toString())
+  } else {
+    res.status(400).send(`${targetDay} is not a valid day!`);
+  }
 })
 
-app.get('/zero', function (req, res) {
-  res.send('0')
-})
+app.post('/api/array/concat', function (req, res) {
+  const array1 = JSON.parse(req.body.array1);
+  const array2 = JSON.parse(req.body.array2);
 
-app.get('/add', function (req, res) {
-  res.send(String(Number(req.query.a) + Number(req.query.b)))
-})
-
-app.get('/subtract', function (req, res) {
-  res.send(String(Number(req.query.a) - Number(req.query.b)))
-})
-
-app.get('/double/:number', function(req, res) {
-  res.send(String(req.params.number * 2))
+  if (Array.isArray(array1) && Array.isArray(array2)) {
+    res.json({result: array1.concat(array2)});
+  } else {
+    res.status(400).json({error: "Input data should be of type Array."})
+  }
 })
 
 app.listen(3000, function () {
