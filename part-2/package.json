@@ -1,0 +1,27 @@
+{
+  "name": "grocery-store-db",
+  "version": "1.0.0",
+  "description": "Just a really simple grocery store content database",
+  "main": "database.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/optomal7/phase-3-challenge.git"
+  },
+  "keywords": [
+    "database",
+    "PostgreSQL"
+  ],
+  "author": "DangerMaus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/optomal7/phase-3-challenge/issues"
+  },
+  "homepage": "https://github.com/optomal7/phase-3-challenge#readme",
+  "dependencies": {
+    "console.table": "^0.8.0",
+    "pg-promise": "^6.3.6"
+  }
+}
