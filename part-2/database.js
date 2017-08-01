@@ -9,11 +9,11 @@ const Groceries = {
   },
 
   realShoppers() {
-    return db.any('SELECT shoppers.name, COUNT (orders.id) FROM orders, shoppers WHERE (shoppers.id = orders.shopper_id) GROUP BY shoppers.name');
+    return db.any('SELECT shoppers.name AS "shopper name", COUNT (orders.id) AS "number of orders" FROM orders, shoppers WHERE (shoppers.id = orders.shopper_id) GROUP BY shoppers.name');
   },
 
   shopperOrder(shopperID) {
-    return db.any('SELECT order_items.order_id, SUM(items.price) FROM order_items INNER JOIN items ON (order_items.item_id = items.id) INNER JOIN orders ON (order_items.order_id = orders.id) WHERE (orders.shopper_id = $1) GROUP BY (order_items.order_id)', [shopperID])
+    return db.any('SELECT order_items.order_id AS "order id", SUM(items.price) AS "total" FROM order_items INNER JOIN items ON (order_items.item_id = items.id) INNER JOIN orders ON (order_items.order_id = orders.id) WHERE (orders.shopper_id = $1) GROUP BY (order_items.order_id)', [shopperID])
   }
 }
 
