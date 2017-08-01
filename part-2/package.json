@@ -2,7 +2,7 @@
   "name": "grocery-store-db",
   "version": "1.0.0",
   "description": "Just a really simple grocery store content database",
-  "main": "database.js",
+  "main": "store.js",
   "scripts": {
     "test": "mocha"
   },
