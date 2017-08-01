@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/optomal7/phase-3-challenge#readme",
   "dependencies": {
+    "chai": "^4.1.0",
     "console.table": "^0.8.0",
+    "mocha": "^3.5.0",
     "pg-promise": "^6.3.6"
   }
 }
