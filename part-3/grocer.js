@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(event) {
   console.log("Sanity check, grocer.js is working.");
+  
   let count = document.getElementById("count-number");
-  let modal = document.getElementById('cart-modal');
+  let modal = document.getElementById("cart-modal");
   let cartBtn = document.getElementById("cart-button");
   let close = document.querySelector(".close");
   let add = document.querySelectorAll(".add");
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     cart.length = 0;
     count.innerHTML = 0;
     cartContent.innerHTML = "";
-    cartTotal.innerHTML = 0.00
+    cartTotal.innerHTML = "$" + 0.00;
   }
 
   console.log(cartBtn);
@@ -50,12 +51,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
       let itemName = document.createElement('span');
       itemName.innerText = cartItem.itemName;
       let itemPrice = document.createElement('span');
+      itemPrice.className = "item-cart-price"
       itemPrice.innerText = cartItem.itemPrice;
       item.appendChild(itemName);
       item.appendChild(itemPrice);
       cartContents.appendChild(item);
     });
-    cartTotal.innerHTML = finalTotal
+    cartTotal.innerHTML = "$" + finalTotal
     cartContent.appendChild(cartContents);
     modal.style.display = "block";
   }
@@ -65,8 +67,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   window.onclick = function(event) {
-      if (event.target == modal) {
-          modal.style.display = "none";
-      }
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
   }
 })

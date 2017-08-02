@@ -9,14 +9,17 @@
   <body class="flex flex-column">
     <!-- The Modal -->
     <div id="cart-modal" class="modal">
-      <!-- Modal content -->
       <div class="modal-content">
         <span class="close">&times;</span>
         <p>Cart</p>
         <div id="cart-content"></div>
         <span>
           <button type="button" id="clear"> Clear </button>
-          Total: $<span id="final-total">0.00</span>
+          <span id="total-box">Total
+            <span id="final-total">
+              $0.00
+            </span>
+          </span>
         </span>
       </div>
     </div>

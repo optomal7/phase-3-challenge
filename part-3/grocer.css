@@ -130,15 +130,18 @@ body {
 }
 
 /* Modal Content */
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+#total-box {
+  float: right;
 }
 
-/* The Close Button */
+.modal-content {
+    background-color: white;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid grey;
+    width: 70%;
+}
+
 .close {
     color: #aaaaaa;
     float: right;
@@ -151,4 +154,8 @@ body {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.item-cart-price{
+  float: right;
 }
