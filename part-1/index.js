@@ -1,7 +1,7 @@
 const app = require('express')();
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 daysOfWeek = {monday: 1,
               tuesday:2,
@@ -24,11 +24,8 @@ app.get('/api/days/:day', function (req, res) {
 })
 
 app.post('/api/array/concat', function (req, res) {
-  const array1 = JSON.parse(req.body.array1);
-  const array2 = JSON.parse(req.body.array2);
-
-  if (Array.isArray(array1) && Array.isArray(array2)) {
-    res.json({result: array1.concat(array2)});
+  if (Array.isArray(req.body.array1) && Array.isArray(req.body.array2)) {
+    res.json({result: req.body.array1.concat(req.body.array2)});
   } else {
     res.status(400).json({error: "Input data should be of type Array."})
   }
