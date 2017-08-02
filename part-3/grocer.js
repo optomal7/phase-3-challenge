@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       item.appendChild(itemPrice);
       cartContents.appendChild(item);
     });
-    cartTotal.innerHTML = "$" + finalTotal
+    cartTotal.innerHTML = "$" + finalTotal.toFixed(2)
     cartContent.appendChild(cartContents);
     modal.style.display = "block";
   }
