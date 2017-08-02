@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event) {
   console.log("Sanity check, grocer.js is working.");
-  
+
   let count = document.getElementById("count-number");
   let modal = document.getElementById("cart-modal");
   let cartBtn = document.getElementById("cart-button");
@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
   for(let z = 0; z < add.length; z++) {
     let elem = add[z];
     elem.onclick = function() {
-      // let countHolder = parseInt(document.getElementById("count-number").innerText);
-      // countHolder = countHolder + 1;
       let itemName = elem.parentNode.querySelector('.item-name');
       let itemPrice = elem.parentNode.querySelector('.item-price');
       cart.push({itemName: itemName.innerText, itemPrice: itemPrice.innerText})
