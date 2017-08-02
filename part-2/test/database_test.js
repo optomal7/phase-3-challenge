@@ -11,7 +11,9 @@ describe('database.js', () => {
       .then((data) => {
         expect(data).to.be.an('array')
         expect(data.length).to.equal(7)
-        expect(data[6].Section).to.equal('dairy')
+        data.forEach((item)=> {
+          expect(item.Section).to.equal('dairy')
+        })
       })
       .then(() => done())
     })
@@ -39,5 +41,5 @@ describe('database.js', () => {
       .then(() => done())
     })
   })
-  
+
 })

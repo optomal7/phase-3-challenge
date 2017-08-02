@@ -13,7 +13,7 @@ const Groceries = {
   },
 
   shopperOrder(shopperID) {
-    return db.any('SELECT order_items.order_id AS "order id", SUM(items.price) AS "total" FROM order_items INNER JOIN items ON (order_items.item_id = items.id) INNER JOIN orders ON (order_items.order_id = orders.id) WHERE (orders.shopper_id = $1) GROUP BY (order_items.order_id)', [shopperID])
+    return db.any('SELECT order_items.order_id AS "order id", SUM(items.price) AS "total" FROM order_items INNER JOIN items ON (order_items.item_id = items.id) INNER JOIN orders ON (order_items.order_id = orders.id) WHERE (orders.shopper_id = $1) GROUP BY (order_items.order_id)', [shopperID]);
   }
 }
 
