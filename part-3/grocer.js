@@ -1,26 +1,35 @@
 document.addEventListener("DOMContentLoaded", function(event) {
   console.log("Sanity check, grocer.js is working.");
-  var modal = document.getElementById('cart-modal');
-  var cartBtn = document.getElementById("cart-button");
-  var close = document.getElementsByClassName("close")[0];
-  var add = document.querySelectorAll(".add");
-  var clear = document.getElementById("clear");
+  let count = document.getElementById("count-number");
+  let modal = document.getElementById('cart-modal');
+  let cartBtn = document.getElementById("cart-button");
+  let close = document.querySelector(".close");
+  let add = document.querySelectorAll(".add");
+  let clear = document.getElementById("clear");
+  let cartContent = document.querySelector('#cart-content');
+  let cartTotal = document.querySelector('#final-total');
+  let cart = [];
 
-
-  for(var z = 0; z < add.length; z++) {
-    var elem = add[z];
+  for(let z = 0; z < add.length; z++) {
+    let elem = add[z];
     elem.onclick = function() {
-      var countHolder = parseInt(document.getElementById("count-number").innerText);
-      countHolder = countHolder + 1;
-      document.getElementById("count-number").innerHTML = countHolder;
+      // let countHolder = parseInt(document.getElementById("count-number").innerText);
+      // countHolder = countHolder + 1;
+      let itemName = elem.parentNode.querySelector('.item-name');
+      let itemPrice = elem.parentNode.querySelector('.item-price');
+      cart.push({itemName: itemName.innerText, itemPrice: itemPrice.innerText})
+      count.innerHTML = cart.length;
       return false;
     };
   }
 
   clear.onclick = function() {
-    document.getElementById("count-number").innerHTML = 0;
+    cart.length = 0;
+    count.innerHTML = 0;
+    cartContent.innerHTML = "";
+    cartTotal.innerHTML = 0.00
   }
-  
+
   console.log(cartBtn);
   console.log(add);
 
@@ -32,7 +41,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   cartBtn.onclick = function() {
-      modal.style.display = "block";
+    cartContent.innerHTML = "";
+    let cartContents = document.createElement('div');
+    let finalTotal = 0;
+    cart.forEach((cartItem) => {
+      finalTotal += parseFloat(cartItem.itemPrice.substring(1), 10)
+      let item = document.createElement('div');
+      let itemName = document.createElement('span');
+      itemName.innerText = cartItem.itemName;
+      let itemPrice = document.createElement('span');
+      itemPrice.innerText = cartItem.itemPrice;
+      item.appendChild(itemName);
+      item.appendChild(itemPrice);
+      cartContents.appendChild(item);
+    });
+    cartTotal.innerHTML = finalTotal
+    cartContent.appendChild(cartContents);
+    modal.style.display = "block";
   }
 
   close.onclick = function() {
